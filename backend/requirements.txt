@@ -7,4 +7,3 @@ requests
 pydantic
 python-dotenv
 openai 
-pdfplumber

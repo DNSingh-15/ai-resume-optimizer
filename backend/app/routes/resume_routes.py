@@ -1,42 +1,40 @@
 from fastapi import APIRouter, UploadFile, File, Form
-from app.services.parser_service import parse_pdf, parse_docx
-from app.services.ai_service import analyze_resume
+import pdfplumber
+import docx
+import io
+
+from app.services.resume_service import analyze_resume
 
 router = APIRouter()
 
-
 @router.post("/analyze")
-async def analyze_resume_api(
-        file: UploadFile = File(...),
-        job_description: str = Form(...)
+async def analyze(
+    resume: UploadFile = File(...),
+    job_description: str = Form(...)
 ):
 
-    try:
+    file_bytes = await resume.read()
+    resume_text = ""
 
-        filename = file.filename
+    # PDF parsing
+    if resume.filename.endswith(".pdf"):
 
-        if filename.endswith(".pdf"):
+        with pdfplumber.open(io.BytesIO(file_bytes)) as pdf:
+            resume_text = "\n".join(page.extract_text() or "" for page in pdf.pages)
 
-            resume_text = parse_pdf(file.file)
+    # DOCX parsing
+    elif resume.filename.endswith(".docx"):
 
-        elif filename.endswith(".docx"):
+        doc = docx.Document(io.BytesIO(file_bytes))
+        resume_text = "\n".join([p.text for p in doc.paragraphs])
 
-            resume_text = parse_docx(file.file)
+    # TXT fallback
+    else:
+        resume_text = file_bytes.decode("utf-8", errors="ignore")
 
-        else:
+    result = analyze_resume(resume_text, job_description)
 
-            return {
-                "success": False,
-                "message": "Unsupported file format. Use PDF or DOCX"
-            }
-
-        ai_result = analyze_resume(resume_text, job_description)
-
-        return ai_result
-
-    except Exception as e:
-
-        return {
-            "success": False,
-            "message": str(e)
-        }
+    return {
+        "success": True,
+        "data": result
+    }
