@@ -35,3 +35,8 @@ coverage/
 # temporary files
 tmp/
 temp/
+
+# Environment variables
+.env
+backend/.env
+client/.env

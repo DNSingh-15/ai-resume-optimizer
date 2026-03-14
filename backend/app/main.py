@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes.resume_routes import router
+from app.config import OPENAI_API_KEY
 
 app = FastAPI(
     title="AI Resume Optimizer",
