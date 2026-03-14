@@ -1,55 +1,35 @@
 # AI Resume Optimizer 🚀
 
-AI Resume Optimizer is a modern web application that analyzes resumes using AI and provides ATS (Applicant Tracking System) scores along with improvement suggestions.
+AI Resume Optimizer is an AI-powered web application designed to analyze resumes and provide actionable insights to improve **ATS (Applicant Tracking System) compatibility**.
 
-## ✨ Features
+The platform helps job seekers optimize their resumes by evaluating structure, keywords, and formatting to increase the chances of passing automated hiring systems used by recruiters.
 
-* Resume upload
-* ATS compatibility score
-* AI-powered improvement suggestions
-* Resume analysis results
-* Download optimized resume
+---
+
+## ✨ Key Features
+
+• Upload and analyze resumes
+• ATS compatibility score evaluation
+• AI-powered resume improvement suggestions
+• Detailed resume analysis report
+• Download optimized resume output
+
+---
 
 ## 🛠 Tech Stack
 
-Frontend:
+**Frontend**
 
-* Next.js
-* React
-* TypeScript
-* TailwindCSS
+• Next.js
+• React
+• TypeScript
+• TailwindCSS
 
-AI:
+**AI Integration**
 
-* OpenAI API (or any LLM provider)
+• OpenAI API / LLM-based analysis
 
-## 📂 Project Structure
-
-```
-ai-resume-optimizer
-│
-└── client
-    │
-    ├── app
-    │   ├── globals.css
-    │   ├── layout.tsx
-    │   └── page.tsx
-    │
-    ├── components
-    │   ├── ATSScore.tsx
-    │   ├── DownloadResume.tsx
-    │   ├── ErrorMessage.tsx
-    │   ├── Improvements.tsx
-    │   ├── Loader.tsx
-    │   ├── ResultCard.tsx
-    │   └── UploadCard.tsx
-    │
-    ├── lib
-    │   └── api.ts
-    │
-    ├── types
-    │   └── resume.ts
-```
+---
 
 ## ⚙️ Installation
 
@@ -59,7 +39,7 @@ Clone the repository:
 git clone https://github.com/DNSingh-15/ai-resume-optimizer.git
 ```
 
-Go into the project folder:
+Navigate to the project directory:
 
 ```
 cd ai-resume-optimizer/client
@@ -71,31 +51,23 @@ Install dependencies:
 npm install
 ```
 
-## ▶️ Run the Application
-
-Start the development server:
+Run the development server:
 
 ```
 npm run dev
 ```
 
-The app will run on:
+The application will be available at:
 
 ```
 http://localhost:3000
 ```
 
-## 🚀 Future Improvements
-
-* Resume keyword optimization
-* Job description matching
-* Resume rewriting using AI
-* Resume scoring dashboard
-* LinkedIn profile analyzer
+---
 
 ## 👨‍💻 Author
 
-D N Singh
+**D N Singh**
 
-GitHub:
+GitHub
 https://github.com/DNSingh-15
