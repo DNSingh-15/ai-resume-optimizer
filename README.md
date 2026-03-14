@@ -65,6 +65,16 @@ http://localhost:3000
 
 ---
 
+##  backend start
+
+```
+pip install -r requirements.txt
+```
+```
+uvicorn app.main:app --reload
+```
+
+
 ## 👨‍💻 Author
 
 **D N Singh**
